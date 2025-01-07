@@ -6,8 +6,8 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import java.awt.*;
 
 public class Entity {
-    int x_pos,y_pos;
-    Color color;
+    public int x_pos,y_pos;
+    public Color color;
 
     Entity(int x_pos, int y_pos, Color color) {
         this.x_pos = x_pos;
