@@ -32,6 +32,10 @@ public class World {
     public void update() {
         boolean just_moved = player.take_input(grid_size);
 
+        monster.set_state(Monster.HUNTING);
+        if (just_moved && monster.get_state()==Monster.HUNTING) {
+            monster.move_towards(player, grid_size);
+        }
 
 
 

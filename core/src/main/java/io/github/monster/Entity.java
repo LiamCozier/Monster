@@ -20,7 +20,13 @@ public class Entity {
 
         sr.setColor(this.color);
         sr.rect(x_pos * square_offset + ((float) square_spacing/2), y_pos * square_offset + ((float) square_spacing/2), square_size, square_size);
+    }
 
+    protected int sign_of(int n) {
+        return n / Math.abs(n);
+    }
 
+    protected int clamp_int(int val, int min, int max) {
+        return Math.max(min, Math.min(max, val));
     }
 }

@@ -15,22 +15,25 @@ public class Player extends Entity {
     }
 
     public boolean take_input(int grid_size) {
+        boolean moved = false;
         if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
             x_pos-=1;
+            moved = true;
         }if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
             x_pos+=1;
+            moved = true;
         }if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
             y_pos+=1;
+            moved = true;
         }if (Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
             y_pos-=1;
+            moved = true;
         }
 
-        x_pos = clamp(x_pos, 0, grid_size-1);
-        y_pos = clamp(y_pos, 0, grid_size-1);
-    }
+        x_pos = clamp_int(x_pos, 0, grid_size-1);
+        y_pos = clamp_int(y_pos, 0, grid_size-1);
 
-    private int clamp(int val, int min, int max) {
-        return Math.max(min, Math.min(max, val));
+        return moved;
     }
 
     public void collect_gold() {
